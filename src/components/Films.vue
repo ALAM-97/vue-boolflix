@@ -1,12 +1,15 @@
 <template>
     <div>
-        {{film.original_title}}
+        {{movie.title}}
+        {{movie.original_language}}
+        {{movie.vote_average}}
     </div>
 </template>
 
 <script>
 export default {
-name: 'Films'
+name: 'Films',
+props: ['movie']
 
 }
 </script>
