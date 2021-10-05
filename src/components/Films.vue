@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        {{film.original_title}}
     </div>
 </template>
 
