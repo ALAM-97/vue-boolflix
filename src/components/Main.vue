@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="container">
         <div class="films">
             <h2>FILMS</h2>
             <ul>
@@ -34,6 +34,29 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import '../assets/style/common.scss';
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        .films, 
+        .tvs {
+        margin: 50px 0;
+            h2 {
+                font-weight: 900;
+                color: $redColor;
+                margin-bottom: 30px;
+            }
+            ul {
+                display: flex;
+                overflow-y: auto;
+                li {
+                    margin-right: 40px;
+                }
+            }
+        }
+    }
+    
 
 </style>

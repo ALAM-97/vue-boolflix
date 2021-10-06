@@ -34,6 +34,7 @@ export default {
     })
       .then( (resp) => {
         this.films = resp.data.results;
+        console.log(resp.data.results)
       })
     axios.get('https:api.themoviedb.org/3/search/tv', {
       params: {
@@ -51,6 +52,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/style/common.scss';
 // #app {
 
 // }
