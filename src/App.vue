@@ -42,7 +42,7 @@ export default {
       }
     })
       .then( (resp) => {
-        this.series = resp.data.results;
+        this.series = resp.data.results
       })
     }
   }

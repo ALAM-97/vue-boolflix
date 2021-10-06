@@ -11,7 +11,7 @@
 import LangFlag from 'vue-lang-code-flags';
 
 export default {
-    name: 'TvSeries',
+    name: 'Tvs',
     props: ['tv'],
     components: {
         LangFlag,
