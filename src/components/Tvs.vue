@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img :src="`https://image.tmdb.org/t/p/w200/`+ tv.poster_path">
         <h3>{{tv.name}}</h3>
         <h5>{{tv.original_title}}</h5>
         <div class="lang"><lang-flag :iso="tv.original_language" :squared="false"/></div>

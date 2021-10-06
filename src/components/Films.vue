@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img :src="`https://image.tmdb.org/t/p/w200/`+ movie.poster_path">
         <h3>{{movie.title}}</h3>
         <h5>{{movie.original_title}}</h5>
         <div class="lang"><lang-flag :iso="movie.original_language" :squared="false"/></div>
