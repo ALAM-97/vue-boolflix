@@ -1,16 +1,21 @@
 <template>
     <div>
-        {{movie.title}}
-        {{movie.original_language}}
-        {{movie.vote_average}}
+        <h3>{{movie.title}}</h3>
+        <h5>{{movie.original_title}}</h5>
+        <div class="lang"><lang-flag :iso="movie.original_language" :squared="false"/></div>
+        <div class="vote">{{movie.vote_average}}</div>
     </div>
 </template>
 
 <script>
-export default {
-name: 'Films',
-props: ['movie']
+import LangFlag from 'vue-lang-code-flags';
 
+export default {
+    name: 'Films',
+    props: ['movie'],
+    components: {
+        LangFlag,
+    },
 }
 </script>
 

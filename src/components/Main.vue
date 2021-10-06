@@ -1,6 +1,11 @@
 <template>
     <main>
-        <Films v-for="(film, index) in allFilms" :key="index" :movie="film" />
+        <ul>
+            <li v-for="(film, index) in allFilms" :key="index" >
+                <Films :movie="film" />
+            </li>
+        </ul>
+        
     </main>
 </template>
 
