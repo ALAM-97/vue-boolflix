@@ -4,7 +4,7 @@
         <h3>{{tv.name}}</h3>
         <h5>{{tv.original_title}}</h5>
         <div class="lang"><lang-flag :iso="tv.original_language" :squared="false"/></div>
-        <div class="vote">{{tv.vote_average}}</div>
+        <div class="vote">{{starVote()}}</div>
     </div>
 </template>
 
@@ -17,9 +17,23 @@ export default {
     components: {
         LangFlag,
     },
+    data() {
+        return {
+            roundedNum: ""
+        }
+    },
+    methods: {
+        starVote() {
+            const halfNum = this.tv.vote_average / 2;
+            this.roundedNum = Math.ceil(halfNum);
+            return this.roundedNum;
+        }
+    }
 }
 </script>
 
-<style>
+
+<style lang="scss" scoped>
+    @import '../assets/style/common.scss';
 
 </style>
