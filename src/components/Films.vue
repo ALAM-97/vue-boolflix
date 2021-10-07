@@ -15,7 +15,9 @@
             <!-- BANDIERA -->
             <div class="lang"><lang-flag :iso="movie.original_language" :squared="false"/></div>
             <!-- GENERI -->
-            <!-- <div>{{show()}}</div> -->
+
+            <div>{{genresId()}}</div>
+
             <!-- STELLE -->
             <div class="vote">
                 <i v-for="(star, index) in starVote()" :key="index" class="fas fa-star"></i>
@@ -53,12 +55,14 @@ export default {
             this.emptyStars = 5 - this.roundedNum;
             return this.emptyStars;
         },
-        // genresId() {
+        genresId() {
+            const idFilm = this.movie.genre_ids;
+            for (let i = 0; i < idFilm.length; i++) {
+                const singleFilmId = idFilm[i][i];
+                console.log(singleFilmId)
+            }
             
-        // },
-        // show() {
-        //     console.log(this.id)
-        // }
+        },
     }
 }
 </script>
@@ -76,6 +80,9 @@ export default {
                 font-size: 1.4rem;
                 margin-bottom: 10px;
                 text-align: center;
+                h3 {
+                    margin-bottom: 7px;
+                }
             }
             .flag-icon {
                 width: 40px;
@@ -90,7 +97,7 @@ export default {
                 margin-bottom: 10px;
             }
             .resume {
-                font-size: .75rem;
+                font-size: .85rem;
                 text-align: center;
                 overflow-y: hidden;
             }

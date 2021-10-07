@@ -51,10 +51,9 @@ export default {
     })
     .then( (resp) => {
       for (let i = 0; i < resp.data.genres.length; i++) {
-        this.moviesGenres.push(resp.data.genres[i].id);
+        this.movieGenres.push(resp.data.genres[i]);
       }
-      return console.log(this.movieGenres);
-      // this.movieGenres = resp.data.genres.id;
+      return this.movieGenres;
     })
   },
   methods: {
