@@ -23,6 +23,24 @@ export default {
       input: "",
     }
   },
+  created() {
+    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US&page=1', {
+      params: {
+        language: 'it-IT'
+      }
+    })
+    .then( (resp) => {
+      this.films = resp.data.results;
+    }),
+    axios.get('https://api.themoviedb.org/3/tv/popular?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US&page=1', {
+      params: {
+        language: 'it-IT'
+      }
+    })
+    .then( (resp) => {
+      this.series = resp.data.results;
+    })
+  },  
   methods: {
   search(userInput) {
     this.input = userInput;
@@ -45,7 +63,7 @@ export default {
       }
     })
       .then( (resp) => {
-        this.series = resp.data.results
+        this.series = resp.data.results;
       })
     }
   }
