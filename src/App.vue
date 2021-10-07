@@ -30,6 +30,7 @@ export default {
       params: {
         api_key: 'cdcfe1113982652506af0e8193d0dd64',
         query: this.input ,
+        language: 'it-IT'
       }
     })
       .then( (resp) => {
@@ -40,6 +41,7 @@ export default {
       params: {
           api_key: 'cdcfe1113982652506af0e8193d0dd64',
           query: this.input ,
+          language: 'it-IT'
       }
     })
       .then( (resp) => {
@@ -53,6 +55,8 @@ export default {
 
 <style lang="scss">
 @import './assets/style/common.scss';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
 // #app {
 
 // }

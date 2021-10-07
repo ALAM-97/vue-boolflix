@@ -17,6 +17,7 @@
             <!-- STELLE -->
             <div class="vote">
                 <i v-for="(star, index) in starVote()" :key="index" class="fas fa-star"></i>
+                <i v-for="(empty, index) in starVoteEmpty()" :key="index" class="far fa-star"></i>
             </div>
             <!-- RIASSUNTO -->
             <div class="resume">
@@ -37,7 +38,8 @@ export default {
     },
     data() {
         return {
-            roundedNum: ""
+            roundedNum: "",
+            emptyStars: "",
         }
     },
     methods: {
@@ -45,6 +47,10 @@ export default {
             const halfNum = this.tv.vote_average / 2;
             this.roundedNum = Math.ceil(halfNum);
             return this.roundedNum;
+        },
+        starVoteEmpty() {
+            this.emptyStars = 5 - this.roundedNum;
+            return this.emptyStars;
         }
     }
 }
@@ -63,6 +69,7 @@ export default {
             .title {
                 font-size: 1.4rem;
                 margin-bottom: 10px;
+                text-align: center;
             }
             .flag-icon {
                 width: 40px;
