@@ -4,7 +4,7 @@
             <h2>FILMS</h2>
             <ul>
                 <li v-for="(film, index) in allFilms" :key="index" >
-                    <Films :movie="film" />
+                    <Films :movie="film" :id="movieGen" />
                 </li>
             </ul>
         </div>
@@ -29,7 +29,7 @@ export default {
         Films,
         Tvs
     },
-    props: ['allFilms','allSeries'],
+    props: ['allFilms','allSeries','movieGen'],
 }
 
 </script>
@@ -50,9 +50,10 @@ export default {
             }
             ul {
                 display: flex;
-                overflow-y: auto;
+                overflow-y: hidden;
                 li {
                     margin-right: 40px;
+                    max-height: 513px;
                 }
             }
         }

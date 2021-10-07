@@ -14,10 +14,12 @@
             </div>
             <!-- BANDIERA -->
             <div class="lang"><lang-flag :iso="movie.original_language" :squared="false"/></div>
+            <!-- GENERI -->
+            <!-- <div>{{show()}}</div> -->
             <!-- STELLE -->
             <div class="vote">
                 <i v-for="(star, index) in starVote()" :key="index" class="fas fa-star"></i>
-                <i v-for="(empty, index) in starVoteEmpty()" :key="index" class="far fa-star"></i>
+                <i v-for="(empty, index) in starVoteEmpty()" :key="index + 10" class="far fa-star"></i>
             </div>
             <!-- RIASSUNTO -->
             <div class="resume">
@@ -32,13 +34,13 @@ import LangFlag from 'vue-lang-code-flags';
 
 export default {
     name: 'Films',
-    props: ['movie'],
+    props: ['movie','id'],
     components: {
         LangFlag,
     },
     data() {
         return {
-            roundedNum: ""
+            roundedNum: "",
         }
     },
     methods: {
@@ -50,7 +52,13 @@ export default {
         starVoteEmpty() {
             this.emptyStars = 5 - this.roundedNum;
             return this.emptyStars;
-        }
+        },
+        // genresId() {
+            
+        // },
+        // show() {
+        //     console.log(this.id)
+        // }
     }
 }
 </script>

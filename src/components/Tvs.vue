@@ -17,7 +17,7 @@
             <!-- STELLE -->
             <div class="vote">
                 <i v-for="(star, index) in starVote()" :key="index" class="fas fa-star"></i>
-                <i v-for="(empty, index) in starVoteEmpty()" :key="index" class="far fa-star"></i>
+                <i v-for="(empty, index) in starVoteEmpty()" :key="index + 10" class="far fa-star"></i>
             </div>
             <!-- RIASSUNTO -->
             <div class="resume">

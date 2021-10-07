@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="search" />
-    <Main :allFilms="films" :allSeries="series"/>
+    <Main :allFilms="films" :allSeries="series" :movieGen="movieGenres" />
   </div>
 </template>
 
@@ -21,9 +21,11 @@ export default {
       films: [],
       series: [],
       input: "",
+      movieGenres: []
     }
   },
   created() {
+    // RICHIESTA AXIOS PER FILM POPOLARI
     axios.get('https://api.themoviedb.org/3/movie/popular?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US&page=1', {
       params: {
         language: 'it-IT'
@@ -32,6 +34,7 @@ export default {
     .then( (resp) => {
       this.films = resp.data.results;
     }),
+    // RICHIESTA AXIOS PER SERIE TV POPOLARI
     axios.get('https://api.themoviedb.org/3/tv/popular?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US&page=1', {
       params: {
         language: 'it-IT'
@@ -39,8 +42,21 @@ export default {
     })
     .then( (resp) => {
       this.series = resp.data.results;
+    }),
+    // RICHIESTA AXIOS PER GENERI FILM
+    axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US', {
+      params: {
+        language: 'it-IT'
+      }
     })
-  },  
+    .then( (resp) => {
+      for (let i = 0; i < resp.data.genres.length; i++) {
+        this.moviesGenres.push(resp.data.genres[i].id);
+      }
+      return console.log(this.movieGenres);
+      // this.movieGenres = resp.data.genres.id;
+    })
+  },
   methods: {
   search(userInput) {
     this.input = userInput;
