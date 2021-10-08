@@ -21,39 +21,37 @@ export default {
       films: [],
       series: [],
       input: "",
-      movieGenres: []
+      movieGenres: [],
+      apiKey: 'cdcfe1113982652506af0e8193d0dd64',
+      param: {
+        language: 'it-IT'
+      },
     }
   },
   created() {
     // RICHIESTA AXIOS PER FILM POPOLARI
-    axios.get('https://api.themoviedb.org/3/movie/popular?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US&page=1', {
-      params: {
-        language: 'it-IT'
-      }
+    axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=1`, {
+      params: this.param
     })
     .then( (resp) => {
       this.films = resp.data.results;
     }),
     // RICHIESTA AXIOS PER SERIE TV POPOLARI
-    axios.get('https://api.themoviedb.org/3/tv/popular?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US&page=1', {
-      params: {
-        language: 'it-IT'
-      }
+    axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${this.apiKey}&language=en-US&page=1`, {
+      params: this.param
     })
     .then( (resp) => {
       this.series = resp.data.results;
     }),
     // RICHIESTA AXIOS PER GENERI FILM
-    axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=cdcfe1113982652506af0e8193d0dd64&language=en-US', {
-      params: {
-        language: 'it-IT'
-      }
+    axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=en-US`, {
+      params: this.param
     })
     .then( (resp) => {
       for (let i = 0; i < resp.data.genres.length; i++) {
         this.movieGenres.push(resp.data.genres[i]);
       }
-      return this.movieGenres;
+      return console.log(this.movieGenres);
     })
   },
   methods: {
@@ -61,7 +59,7 @@ export default {
     this.input = userInput;
     axios.get('https://api.themoviedb.org/3/search/movie', {
       params: {
-        api_key: 'cdcfe1113982652506af0e8193d0dd64',
+        api_key: this.apiKey,
         query: this.input ,
         language: 'it-IT'
       }
@@ -72,7 +70,7 @@ export default {
       })
     axios.get('https:api.themoviedb.org/3/search/tv', {
       params: {
-          api_key: 'cdcfe1113982652506af0e8193d0dd64',
+          api_key: this.apiKey,
           query: this.input ,
           language: 'it-IT'
       }

@@ -1,20 +1,31 @@
 <template>
     <main class="container">
         <div class="films">
-            <h2>FILMS</h2>
-            <ul>
-                <li v-for="(film, index) in allFilms" :key="index" >
-                    <Films :movie="film" :id="movieGen" />
-                </li>
-            </ul>
+            <div v-if="allFilms.length > 0">
+                <h2>FILMS</h2>
+                <ul>
+                    <li v-for="(film, index) in allFilms" :key="index" >
+                        <Films :movie="film" :id="movieGen" />
+                    </li>
+                </ul>
+            </div>
+            <div v-else>
+                <h2>NESSUN FILM TROVATO</h2>
+            </div>
+            
         </div>
         <div class="tvs">
-            <h2>TV SERIES</h2>
-            <ul>
-                <li v-for="(serie, index) in allSeries" :key="index" >
-                    <Tvs :tv="serie" />
-                </li>
-            </ul>
+            <div v-if="allSeries.length > 0">
+                <h2>TV SERIES</h2>
+                <ul>
+                    <li v-for="(serie, index) in allSeries" :key="index" >
+                        <Tvs :tv="serie" />
+                    </li>
+                </ul>
+            </div>
+            <div v-else>
+                <h2>NESSUNA SERIE TROVATA</h2>
+            </div>
         </div>
     </main>
 </template>

@@ -56,12 +56,12 @@ export default {
             return this.emptyStars;
         },
         genresId() {
-            const idFilm = this.movie.genre_ids;
-            for (let i = 0; i < idFilm.length; i++) {
-                const singleFilmId = idFilm[i][i];
-                console.log(singleFilmId)
-            }
-            
+            // const idFilm = this.movie.genre_ids;
+            // for (let i = 0; i < idFilm.length; i++) {
+            //     const singleFilmId = idFilm[i];
+            //     console.log(singleFilmId)
+            // }
+            console.log(this.movie)
         },
     }
 }
