@@ -54,7 +54,15 @@ export default {
         starVoteEmpty() {
             this.emptyStars = 5 - this.roundedNum;
             return this.emptyStars;
-        }
+        },
+        genresId() {
+            // const idFilm = this.movie.genre_ids;
+            // for (let i = 0; i < idFilm.length; i++) {
+            //     const singleFilmId = idFilm[i];
+            //     console.log(singleFilmId)
+            // }
+            console.log(this.movie)
+        },
     }
 }
 </script>
