@@ -66,9 +66,8 @@ export default {
     })
       .then( (resp) => {
         this.films = resp.data.results;
-        console.log(resp.data.results)
       })
-    axios.get('https:api.themoviedb.org/3/search/tv', {
+    axios.get('https://api.themoviedb.org/3/search/tv', {
       params: {
           api_key: this.apiKey,
           query: this.input ,
@@ -77,6 +76,7 @@ export default {
     })
       .then( (resp) => {
         this.series = resp.data.results;
+        console.log(resp.data.results);
       })
     }
   }
